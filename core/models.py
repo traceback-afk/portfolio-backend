@@ -3,7 +3,7 @@ from django.utils.text import slugify
 
 
 class WriteUpImage(models.Model):
-    image = models.ImageField(upload_to="images/writeups/")
+    image = models.ImageField(upload_to="writeups/")
 
 
 class WriteUp(models.Model):
@@ -45,7 +45,7 @@ class ProjectImage(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name="images"
     )
-    image = models.ImageField(upload_to="images/projects/")
+    image = models.ImageField(upload_to="projects/")
 
 
 
