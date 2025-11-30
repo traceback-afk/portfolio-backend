@@ -17,5 +17,5 @@ def send_email_on_message_creation(sender, instance, created, **kwargs):
             message=body,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[recipient],
-            fail_silently=False,
+            fail_silently=True,
         )
