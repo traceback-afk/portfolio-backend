@@ -16,4 +16,4 @@ def create_message(request, payload: CreateMessageSchema):
     except:
         return 400, {"detail": "message creation failed"}
 
-    return 201, {"result": "successful"}
+    return 200, {"result": "successful"}
