@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import WriteUp, Project, ProjectImage
+from core.models import WriteUp, Project, ProjectImage, Message, WriteUpImage
 
 
 @admin.register(WriteUp)
@@ -19,3 +19,5 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ProjectImage)
+admin.site.register(Message)
+admin.site.register(WriteUpImage)

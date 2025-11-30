@@ -2,6 +2,10 @@ from django.db import models
 from django.utils.text import slugify
 
 
+class WriteUpImage(models.Model):
+    image = models.ImageField(upload_to="images/writeups/")
+
+
 class WriteUp(models.Model):
     title = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
@@ -42,6 +46,7 @@ class ProjectImage(models.Model):
         Project, on_delete=models.CASCADE, related_name="images"
     )
     image = models.ImageField(upload_to="images/projects/")
+
 
 
 class Message(models.Model):
