@@ -7,7 +7,7 @@ router = Router(tags=["Contact"])
 
 
 @router.post("/", response={400: ErrorSchema, 200: CreateMessageResultSchema})
-def create_message(response, payload: CreateMessageSchema):
+def create_message(request, payload: CreateMessageSchema):
     name = payload.name
     email = payload.email
     message = payload.message

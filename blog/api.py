@@ -8,12 +8,12 @@ router = Router(tags=["Blog"])
 
 
 @router.get("/", response={200: List[ListWriteUpSchema]})
-def list_writeups(response):
+def list_writeups(request):
     writeups = get_list_or_404(WriteUp, is_visible=True, order_by="-created_at")
     return writeups
 
 
 @router.get("/{slug}", response={200: GetWriteUpSchema})
-def get_writeup(response, slug: str):
+def get_writeup(request, slug: str):
     writeup = get_object_or_404(WriteUp, slug=slug, is_visible=True)
     return writeup
