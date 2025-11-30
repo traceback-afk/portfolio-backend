@@ -5,7 +5,7 @@ from core.models import WriteUp
 class ListWriteUpSchema(ModelSchema):
     class Meta:
         model = WriteUp
-        fields = ["id", "title", "description", "slug"]
+        fields = ["id", "title", "description", "slug", "created_at"]
 
 
 class GetWriteUpSchema(ModelSchema):
