@@ -42,6 +42,11 @@ class Project(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name="projects")
 
+
+    @property
+    def image(self):
+        return self.images.first()
+
     def __str__(self):
         return self.name
 
