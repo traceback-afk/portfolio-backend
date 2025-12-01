@@ -17,6 +17,4 @@ class GetWriteUpSchema(ModelSchema):
 class TagSchema(ModelSchema):
     class Meta:
         model = Tag
-        fields = [
-            "name",
-        ]
+        fields = ["id", "name"]
