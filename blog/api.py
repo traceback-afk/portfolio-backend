@@ -33,5 +33,5 @@ def get_writeup(request, slug: str):
 
 @router.get("/tags", response={200: list[TagSchema]})
 def list_tags(request):
-    qs = Tag.objects.all()
+    qs = Tag.objects.filter(writeup__isnull=False).distinct()
     return qs
