@@ -5,6 +5,9 @@ from django.utils.text import slugify
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class WriteUpImage(models.Model):
     image = models.ImageField(upload_to="writeups/")
@@ -18,7 +21,7 @@ class WriteUp(models.Model):
     is_visible = models.BooleanField(default=True)
     slug = models.SlugField(unique=True, blank=True)
     url = models.URLField(help_text="Challenge/Lab URL")
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, related_name="writeups")
 
     def __str__(self):
         return self.title
@@ -37,7 +40,7 @@ class Project(models.Model):
     is_visible = models.BooleanField(default=True)
     created_at = models.DateTimeField()
     slug = models.SlugField(unique=True, blank=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, related_name="projects")
 
     def __str__(self):
         return self.name
