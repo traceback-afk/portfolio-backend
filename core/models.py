@@ -2,6 +2,10 @@ from django.db import models
 from django.utils.text import slugify
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+
 class WriteUpImage(models.Model):
     image = models.ImageField(upload_to="writeups/")
 
@@ -14,6 +18,7 @@ class WriteUp(models.Model):
     is_visible = models.BooleanField(default=True)
     slug = models.SlugField(unique=True, blank=True)
     url = models.URLField(help_text="Challenge/Lab URL")
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.title
@@ -32,6 +37,7 @@ class Project(models.Model):
     is_visible = models.BooleanField(default=True)
     created_at = models.DateTimeField()
     slug = models.SlugField(unique=True, blank=True)
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.name
@@ -47,7 +53,6 @@ class ProjectImage(models.Model):
         Project, on_delete=models.CASCADE, related_name="images"
     )
     image = models.ImageField(upload_to="projects/")
-
 
 
 class Message(models.Model):
