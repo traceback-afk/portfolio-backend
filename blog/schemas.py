@@ -11,4 +11,4 @@ class ListWriteUpSchema(ModelSchema):
 class GetWriteUpSchema(ModelSchema):
     class Meta:
         model = WriteUp
-        fields = ["id", "title", "description", "created_at", "content"]
+        fields = ["id", "title", "description", "created_at", "content", "url"]

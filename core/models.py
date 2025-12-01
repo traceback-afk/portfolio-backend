@@ -13,6 +13,7 @@ class WriteUp(models.Model):
     created_at = models.DateTimeField()
     is_visible = models.BooleanField(default=True)
     slug = models.SlugField(unique=True, blank=True)
+    url = models.URLField(help_text="Challenge/Lab URL")
 
     def __str__(self):
         return self.title
