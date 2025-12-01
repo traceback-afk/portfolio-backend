@@ -35,7 +35,7 @@ class WriteUp(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=250)
     short_description = models.CharField(max_length=250)
-    description = models.CharField()
+    description = models.TextField()
     link = models.URLField()
     is_visible = models.BooleanField(default=True)
     created_at = models.DateTimeField()
