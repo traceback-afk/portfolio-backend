@@ -21,8 +21,8 @@ def list_projects(request, q: str = "", tags: str = "", limit: int = 0):
 
     if limit:
         qs = qs[:limit]
-        
-    return qs
+
+    return list(qs)
 
 
 @router.get("/{slug}", response=GetProjectSchema)
