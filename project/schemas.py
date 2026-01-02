@@ -1,5 +1,5 @@
 from ninja import ModelSchema
-from core.models import Project, ProjectImage
+from core.models import Project, ProjectImage, Tag
 from typing import List
 
 
@@ -12,8 +12,16 @@ class ProjectImageSchema(ModelSchema):
         ]
 
 
+class TagSchema(ModelSchema):
+    class Meta:
+        model = Tag
+        fields = ["id", "name"]
+
+
 class ListProjectSchema(ModelSchema):
+
     image: ProjectImageSchema
+    tags: list[TagSchema]
 
     class Meta:
         model = Project
@@ -22,6 +30,7 @@ class ListProjectSchema(ModelSchema):
 
 class GetProjectSchema(ModelSchema):
     images: List[ProjectImageSchema]
+    tags: list[TagSchema]
 
     class Meta:
         model = Project
